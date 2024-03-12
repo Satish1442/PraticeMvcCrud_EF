@@ -1,0 +1,55 @@
+﻿@model IList<PraticeMvcCrud_EF.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid black; /* Outer border */
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid black; /* Inner border */
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h2>Index</h2>
+
+@Html.ActionLink("Add Student", "AddStud")
+
+@if (Model != null && Model.Count > 0)
+{
+    <table cellspacing="5">
+        <!-- cellspacing attribute -->
+        <tr>
+            <th>Sno</th>
+            <th>Name</th>
+            <th>Fee</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var stu in Model)
+        {
+            <tr>
+                <td>@stu.Sno</td>
+                <td>@stu.Name</td>
+                <td>@stu.Fee</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = stu.Sno }) |
+                    @Html.ActionLink("Details", "Details", new { id = stu.Sno }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = stu.Sno })
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No students found.</p>
+}

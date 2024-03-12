@@ -1,0 +1,36 @@
+﻿@using PraticeMvcCrud_EF.Models
+@model Student
+@{
+    ViewBag.Title = "AddStud";
+}
+
+<h2>AddStud</h2>
+
+
+@using (Html.BeginForm("AddStud", "Student", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Sno)
+    @Html.TextBoxFor(m => m.Sno)
+    @Html.ValidationMessageFor(m => m.Sno)
+    <br />
+
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+    <br />
+
+
+    @Html.LabelFor(m => m.Fee)
+    @Html.TextBoxFor(m => m.Fee)
+    @Html.ValidationMessageFor(m => m.Fee)
+    <br />
+
+    <input type="submit" value="Add" />
+
+}
+
+
+
+@Html.ActionLink("Back to list ", "Index")
+

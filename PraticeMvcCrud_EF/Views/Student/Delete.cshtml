@@ -1,0 +1,39 @@
+﻿@using PraticeMvcCrud_EF.Models
+@model  Student
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm("Delete", "Student", FormMethod.Post))
+{
+    <dt>
+        @Html.DisplayNameFor(m => m.Sno)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.Sno)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(m => m.Name)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(m => m.Fee)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.Fee)
+    </dd>
+
+
+    <h4>@ViewBag.Message</h4>
+
+    <input type="submit" value="Delete" />
+}
+
+@Html.ActionLink("Back to Student ", "Index")
+
+
